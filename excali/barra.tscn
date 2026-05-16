@@ -6,5 +6,5 @@
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=450552136]
 position = Vector2(0, 1)
-scale = Vector2(0.38317755, 1)
+scale = Vector2(0.8154206, 1)
 texture = ExtResource("1_mrux4")
