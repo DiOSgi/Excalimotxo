@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bbunmluxu1vp5"]
+
+[ext_resource type="Texture2D" uid="uid://b5bdkwpfaskhw" path="res://sprites/barra_verde.png" id="1_snwpm"]
+[ext_resource type="Script" uid="uid://cjtxstvbsxpam" path="res://code/zona_verde.gd" id="1_xv33r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv33r"]
+size = Vector2(39, 17.5)
+
+[node name="zona_verde" type="Area2D" unique_id=1910427845]
+script = ExtResource("1_xv33r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=181033519]
+position = Vector2(0.50000024, -5.364418e-07)
+scale = Vector2(0.08915663, 0.18181817)
+texture = ExtResource("1_snwpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1835156757]
+position = Vector2(0.5, 0.24999952)
+shape = SubResource("RectangleShape2D_xv33r")

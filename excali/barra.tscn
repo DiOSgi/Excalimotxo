@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bveyenjh58nj2"]
+
+[ext_resource type="Texture2D" uid="uid://dfx05xfs72aju" path="res://sprites/barra.png" id="1_mrux4"]
+
+[node name="barra" type="Node2D" unique_id=1998946788]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=450552136]
+position = Vector2(0, 1)
+scale = Vector2(0.38317755, 1)
+texture = ExtResource("1_mrux4")

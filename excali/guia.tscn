@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://ejsmdb5n82ad"]
 
 [ext_resource type="Script" uid="uid://calushwg5bnv" path="res://code/guia.gd" id="1_wqsia"]
-[ext_resource type="Texture2D" uid="uid://dwlvvoc6gbdj2" path="res://sprites/guia.png" id="2_j77pk"]
+[ext_resource type="Texture2D" uid="uid://bh7tcpl8nks4a" path="res://sprites/guia.png" id="2_j77pk"]
 
-[node name="guia" type="Node2D" unique_id=603922913]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kurrv"]
+size = Vector2(18, 63)
+
+[node name="guia" type="Area2D" unique_id=1584214554]
 script = ExtResource("1_wqsia")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852993476]
-position = Vector2(39.999996, -36)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=36209477]
+position = Vector2(2.3841858e-07, 0)
 scale = Vector2(2.0882351, 2.1794875)
 texture = ExtResource("2_j77pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64072486]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_kurrv")
