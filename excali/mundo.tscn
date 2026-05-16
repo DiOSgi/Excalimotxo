@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bgwxmmjdboum5"]
+
+[node name="Node2D" type="Node2D" unique_id=1513716568]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1529232566]

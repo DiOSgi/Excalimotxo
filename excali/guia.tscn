@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ejsmdb5n82ad"]
+
+[ext_resource type="Script" uid="uid://calushwg5bnv" path="res://code/guia.gd" id="1_wqsia"]
+[ext_resource type="Texture2D" uid="uid://dwlvvoc6gbdj2" path="res://sprites/guia.png" id="2_j77pk"]
+
+[node name="guia" type="Node2D" unique_id=603922913]
+script = ExtResource("1_wqsia")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852993476]
+position = Vector2(39.999996, -36)
+scale = Vector2(2.0882351, 2.1794875)
+texture = ExtResource("2_j77pk")
