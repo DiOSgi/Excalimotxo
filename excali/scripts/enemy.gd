@@ -11,8 +11,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-	
+	if vida <= 0:
+		morir()
+
+func recibir_daño(cantidad: int) -> void:
+	vida -= cantidad
+	print("Vida restante: ", vida)  # para debug
+
 func comportamiento() -> void:
 	# Mientras el enemigo siga vivo, repetirá esto:
 	while vida > 0:
@@ -30,12 +35,7 @@ func comportamiento() -> void:
 		
 		$AnimatedSprite2D.play("idle")
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ATACAR"):
-		if Guia.attack == 1:
-			await get_tree().create_timer(3.0).timeout
-			if vida <= 0:
-				morir()
+
 
 
 

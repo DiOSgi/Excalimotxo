@@ -6,7 +6,7 @@ var move_direction: int = -1
 var velocidad: float = 3
 var can_move: bool = true
 var atacando: bool = false 
-@onready var enemy = $"../enemy"
+@onready var enemy = $"/root/mundo/Enemy"
 
 
 # --- EMPEZAR ---
@@ -54,9 +54,10 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
 		if attack == 1:
-			can_move = false 
-			if verificar_zona():
-				enemy.vida -= Filo.daño
+			can_move = false
+			if await verificar_zona():
+				if enemy:
+					enemy.recibir_daño(Filo.daño) 
 				atacando = true
 				await get_tree().create_timer(0.5).timeout
 				attack = 1
@@ -67,9 +68,10 @@ func _input(event: InputEvent) -> void:
 				await get_tree().create_timer(0.5).timeout
 				attack = 0
 				al_recibir_move()
-			
+
 
 func verificar_zona() -> bool:
+	await get_tree().process_frame
 	var areas_tocando = get_overlapping_areas()
 	
 	if areas_tocando.size() > 0:
