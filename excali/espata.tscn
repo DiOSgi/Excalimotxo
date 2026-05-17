@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://b7e4fmgsitdv3"]
+
+[ext_resource type="Texture2D" uid="uid://card4uts8s0fe" path="res://sprites/costume1.svg" id="1_ae3uu"]
+[ext_resource type="Script" uid="uid://lggelf675ml4" path="res://espata.gd" id="1_rx72l"]
+
+[sub_resource type="Animation" id="Animation_rx72l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ae3uu"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-21, -13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.098573]
+}
+
+[sub_resource type="Animation" id="Animation_agopg"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yqbd"]
+_data = {
+&"RESET": SubResource("Animation_rx72l"),
+&"attack": SubResource("Animation_ae3uu"),
+&"idle": SubResource("Animation_agopg")
+}
+
+[node name="Espada" type="Node2D" unique_id=804453865]
+script = ExtResource("1_rx72l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=555585006]
+texture = ExtResource("1_ae3uu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1312286220]
+libraries/ = SubResource("AnimationLibrary_5yqbd")
+autoplay = &"idle"
+speed_scale = 2.152

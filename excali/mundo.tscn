@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ejsmdb5n82ad" path="res://guia.tscn" id="1_6ba58"]
 [ext_resource type="PackedScene" uid="uid://bveyenjh58nj2" path="res://barra.tscn" id="1_fw4w5"]
 [ext_resource type="PackedScene" uid="uid://bbunmluxu1vp5" path="res://zona_verde.tscn" id="2_fw4w5"]
+[ext_resource type="PackedScene" uid="uid://b7e4fmgsitdv3" path="res://espata.tscn" id="4_otwa2"]
 
 [node name="mundo" type="Node2D" unique_id=1513716568]
 
@@ -17,3 +18,8 @@ scale = Vector2(1.5, 1.5)
 
 [node name="guia" parent="." unique_id=603922913 instance=ExtResource("1_6ba58")]
 position = Vector2(0, 249)
+
+[node name="Espata" parent="." unique_id=302175241 instance=ExtResource("4_otwa2")]
+position = Vector2(432, 103.00001)
+rotation = -0.0035378337
+scale = Vector2(5, 5)

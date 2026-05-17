@@ -1,13 +1,13 @@
 extends Area2D  
 
 # --- VARIABLES INICIALES ---
-var spawn: float = 0.04
+var spawn: float = 1.5
 var attack: int = 1
 
 
 # --- EMPEZAR ---
 func _ready() -> void:
-	spawn = 0.04
+	spawn = 1.5
 	position.y = 249
 	position.x = randf_range(-289.0, 292.0)
 	al_recibir_turno()
