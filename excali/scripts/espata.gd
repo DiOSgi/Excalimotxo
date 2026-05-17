@@ -6,8 +6,15 @@ var tamañobarra
 var daño : int
 var parry : float = 0.5
 var freezetimebarra
+<<<<<<< HEAD
 var bloqueado = false
 var vida = 30
+=======
+var sonido: int
+@onready var espada1 : AudioStreamPlayer = $sonidoEspada1
+@onready var espada2 : AudioStreamPlayer = $sonidoEspada2
+@onready var espada3 : AudioStreamPlayer = $sonidoEspada3
+>>>>>>> 758d61d514fc09e2474596a934d7d45ab22074f9
 
 func _ready() -> void:
 	update_animations("idle")
@@ -21,12 +28,21 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
 		if Guia.attack == 1:
+			@warning_ignore("narrowing_conversion")
+			sonido = randf_range(1,3)
+			if sonido == 1:
+				espada1.play()
+			elif sonido == 2:
+				espada2.play()
+			else:
+				espada3.play()
 			update_animations("attack")
 			await get_tree().create_timer(0.5).timeout
 			update_animations("idle")
 		else:
 			update_animations("idle")
 	if event.is_action_pressed("BLOQUEAR"):
+<<<<<<< HEAD
 		if Guia.attack == 1:
 			update_animations("parry")
 			bloqueado = true
@@ -35,6 +51,12 @@ func _input(event: InputEvent) -> void:
 			update_animations("idle")
 		else:
 			update_animations("idle")
+=======
+		@warning_ignore("unused_variable")
+		var bloqueado = true
+		await get_tree().create_timer(parry).timeout
+		bloqueado = false
+>>>>>>> 758d61d514fc09e2474596a934d7d45ab22074f9
 
 
 func update_animations(animation):
