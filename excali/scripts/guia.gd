@@ -6,7 +6,7 @@ var move_direction: int = -1
 var velocidad: float = 3
 var can_move: bool = true
 var atacando: bool = false 
-
+@onready var enemy = $"../enemy"
 
 
 # --- EMPEZAR ---
@@ -56,6 +56,7 @@ func _input(event: InputEvent) -> void:
 		if attack == 1:
 			can_move = false 
 			if verificar_zona():
+				enemy.vida -= Filo.daño
 				atacando = true
 				await get_tree().create_timer(0.5).timeout
 				attack = 1

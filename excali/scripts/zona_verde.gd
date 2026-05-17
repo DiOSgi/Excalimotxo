@@ -5,6 +5,7 @@ var spawn: float = 1.5
 var attack: int = 1
 @export var areas_tocando: int
 
+
 # --- EMPEZAR ---
 func _ready() -> void:
 	spawn = 1.5
@@ -29,7 +30,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
 		if attack == 1:
 			if al_recibir_hit():
-				Enemy.vida -=Filo.daño
 				hide()
 				# esperar [spawn] segundos
 				await get_tree().create_timer(spawn).timeout

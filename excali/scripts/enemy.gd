@@ -4,9 +4,9 @@ var vida
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().process_frame
-	update_animation("idle")
 	vida = 30
 	comportamiento()
+	$AnimatedSprite2D.play("idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +28,7 @@ func comportamiento() -> void:
 		if vida <= 0: break
 		
 		
-		update_animation("idle")
+		$AnimatedSprite2D.play("idle")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
@@ -37,14 +37,13 @@ func _input(event: InputEvent) -> void:
 			if vida <= 0:
 				morir()
 
-func update_animation(animacion):
-	$AnimatedSprite2D.play(animacion)
+
 
 func attack():
-	update_animation("attack")
+	$AnimatedSprite2D.play("attack")
 	
 func morir():
 	vida = 0
-	update_animation("die")
+	$AnimatedSprite2D.play("die")
 	await get_tree().create_timer(0.7).timeout
 	hide()

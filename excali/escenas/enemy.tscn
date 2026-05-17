@@ -3,23 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dii3qw647e86a" path="res://sprites/Players/Dwarf/dwarf x2.png" id="1_vr67e"]
 [ext_resource type="Script" uid="uid://cfb7ddc40h6qp" path="res://scripts/enemy.gd" id="1_vs78y"]
 
-[sub_resource type="Animation" id="Animation_vs78y"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_xmj2q"]
-resource_name = "attack"
-length = 2.0
-
-[sub_resource type="Animation" id="Animation_ocnky"]
-resource_name = "idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tod1u"]
-_data = {
-&"RESET": SubResource("Animation_vs78y"),
-&"attack": SubResource("Animation_xmj2q"),
-&"idle": SubResource("Animation_ocnky")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr67e"]
 atlas = ExtResource("1_vr67e")
 region = Rect2(0, 320, 64, 64)
@@ -117,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oiewk")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -125,9 +108,8 @@ animations = [{
 [node name="Enemy" type="Node2D" unique_id=344998469]
 script = ExtResource("1_vs78y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1951599985]
-libraries/ = SubResource("AnimationLibrary_tod1u")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=207968709]
 sprite_frames = SubResource("SpriteFrames_ev3pp")
 animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1895231426]
