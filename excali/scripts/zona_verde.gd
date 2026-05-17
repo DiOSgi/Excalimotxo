@@ -3,7 +3,7 @@ extends Area2D
 # --- VARIABLES INICIALES ---
 var spawn: float = 1.5
 var attack: int = 1
-
+@export var areas_tocando: int
 
 # --- EMPEZAR ---
 func _ready() -> void:

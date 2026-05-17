@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://bgwxmmjdboum5"]
 
+[ext_resource type="PackedScene" uid="uid://chul61tqrolpd" path="res://escenas/enemy.tscn" id="1_16hu1"]
 [ext_resource type="PackedScene" uid="uid://bveyenjh58nj2" path="res://escenas/barra.tscn" id="1_v12yk"]
 [ext_resource type="PackedScene" uid="uid://bbunmluxu1vp5" path="res://escenas/zona_verde.tscn" id="2_16hu1"]
 [ext_resource type="PackedScene" uid="uid://ejsmdb5n82ad" path="res://escenas/guia.tscn" id="3_7oex1"]
 [ext_resource type="PackedScene" uid="uid://b7e4fmgsitdv3" path="res://escenas/espata.tscn" id="4_4vydk"]
 
 [node name="mundo" type="Node2D" unique_id=1513716568]
+
+[node name="Enemy" parent="." unique_id=344998469 instance=ExtResource("1_16hu1")]
+position = Vector2(1.9999999, -163.99998)
+scale = Vector2(5, 5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1529232566]
 

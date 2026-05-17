@@ -8,6 +8,7 @@ var can_move: bool = true
 var atacando: bool = false 
 
 
+
 # --- EMPEZAR ---
 func _ready() -> void:
 	# Posición inicial 
@@ -70,7 +71,6 @@ func _input(event: InputEvent) -> void:
 func verificar_zona() -> bool:
 	var areas_tocando = get_overlapping_areas()
 	
-	# Si la lista NO está vacía, significa que estamos tocando otra Area2D
 	if areas_tocando.size() > 0:
 		return true
 	else:
