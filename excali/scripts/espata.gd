@@ -6,6 +6,8 @@ var tamañobarra
 var daño : int
 var parry : float = 0.5
 var freezetimebarra
+var bloqueado = false
+var vida = 30
 
 func _ready() -> void:
 	update_animations("idle")
@@ -13,7 +15,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	if vida <= 0:
+		get_tree().quit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
@@ -24,9 +27,14 @@ func _input(event: InputEvent) -> void:
 		else:
 			update_animations("idle")
 	if event.is_action_pressed("BLOQUEAR"):
-		var bloqueado = true
-		await get_tree().create_timer(parry).timeout
-		bloqueado = false
+		if Guia.attack == 1:
+			update_animations("parry")
+			bloqueado = true
+			await get_tree().create_timer(parry).timeout
+			bloqueado = false
+			update_animations("idle")
+		else:
+			update_animations("idle")
 
 
 func update_animations(animation):
