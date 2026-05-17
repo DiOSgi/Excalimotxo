@@ -1,5 +1,7 @@
 extends Node2D
-var vida 
+var vida
+var dañoenemigo
+@onready var Espata = $"/root/mundo/Espata" 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,7 +43,11 @@ func comportamiento() -> void:
 
 func attack():
 	$AnimatedSprite2D.play("attack")
-	
+	#if Espata.bloqueado():
+	#	dañoenemigo = 0
+	#if not Espata.bloqueado():
+	#	dañoenemigo = 2
+
 func morir():
 	vida = 0
 	$AnimatedSprite2D.play("die")

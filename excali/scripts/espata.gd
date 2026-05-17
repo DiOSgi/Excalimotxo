@@ -1,12 +1,18 @@
 extends Node2D
 
+var velocidad : int
+var spawnrate : float
+var tamañobarra
+var daño : int
+var parry : float = 0.5
+var freezetimebarra
 
 func _ready() -> void:
 	update_animations("idle")
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -17,6 +23,10 @@ func _input(event: InputEvent) -> void:
 			update_animations("idle")
 		else:
 			update_animations("idle")
+	if event.is_action_pressed("BLOQUEAR"):
+		var bloqueado = true
+		await get_tree().create_timer(parry).timeout
+		bloqueado = false
 
 
 func update_animations(animation):

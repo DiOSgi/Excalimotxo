@@ -29,7 +29,7 @@ func al_recibir_move() -> void:
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not can_move:
 		return
 		

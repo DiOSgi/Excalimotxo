@@ -12,7 +12,7 @@ func _ready() -> void:
 	velocidad = 2
 	spawnrate = 2
 	tamañobarra = 3
-	daño = 30
+	daño = 3
 	parry = 2
 	# Si terminamos poniendo tipos de filos, seria hacer otra variable
 	# llamada "tipo" que diga si es espada, mandoble, daga...
