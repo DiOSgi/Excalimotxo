@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bgwxmmjdboum5"]
+
+[ext_resource type="PackedScene" uid="uid://bveyenjh58nj2" path="res://escenas/barra.tscn" id="1_v12yk"]
+[ext_resource type="PackedScene" uid="uid://bbunmluxu1vp5" path="res://escenas/zona_verde.tscn" id="2_16hu1"]
+[ext_resource type="PackedScene" uid="uid://ejsmdb5n82ad" path="res://escenas/guia.tscn" id="3_7oex1"]
+[ext_resource type="PackedScene" uid="uid://b7e4fmgsitdv3" path="res://escenas/espata.tscn" id="4_4vydk"]
+
+[node name="mundo" type="Node2D" unique_id=1513716568]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1529232566]
+
+[node name="barra" parent="." unique_id=1998946788 instance=ExtResource("1_v12yk")]
+position = Vector2(0, 252)
+
+[node name="zona_verde" parent="." unique_id=1910427845 instance=ExtResource("2_16hu1")]
+position = Vector2(-3.8146973e-06, 249.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="guia" parent="." unique_id=603922913 instance=ExtResource("3_7oex1")]
+position = Vector2(0, 249)
+
+[node name="Espata" parent="." unique_id=302175241 instance=ExtResource("4_4vydk")]
+position = Vector2(432, 103.00001)
+rotation = -0.0035378337
+scale = Vector2(5, 5)

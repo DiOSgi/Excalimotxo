@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbunmluxu1vp5"]
 
 [ext_resource type="Texture2D" uid="uid://b5bdkwpfaskhw" path="res://sprites/barra_verde.png" id="1_snwpm"]
-[ext_resource type="Script" uid="uid://cjtxstvbsxpam" path="res://code/zona_verde.gd" id="1_xv33r"]
+[ext_resource type="Script" uid="uid://cjtxstvbsxpam" path="res://scripts/zona_verde.gd" id="1_xv33r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv33r"]
 size = Vector2(38.5, 17.5)
