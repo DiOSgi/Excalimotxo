@@ -3,8 +3,9 @@ extends Area2D
 # --- VARIABLES INICIALES---
 var attack: int = 1
 var move_direction: int = -1
-var velocidad: float = 8.0
+var velocidad: float = 3
 var can_move: bool = true
+var atacando: bool = false 
 
 
 # --- EMPEZAR ---
@@ -13,7 +14,8 @@ func _ready() -> void:
 	position = Vector2(0, 249)
 	attack = 1
 	move_direction = -1
-	velocidad = 8.0
+	velocidad = 3
+	atacando = false
 	
 	set_process_input(true)
 	# Activa el movimiento
@@ -53,9 +55,12 @@ func _input(event: InputEvent) -> void:
 		if attack == 1:
 			can_move = false 
 			if verificar_zona():
+				atacando = true
 				await get_tree().create_timer(0.5).timeout
 				attack = 1
 				al_recibir_move()
+				await get_tree().create_timer(0.5).timeout
+				atacando = false
 			else:
 				await get_tree().create_timer(0.5).timeout
 				attack = 0
