@@ -1,8 +1,9 @@
 extends Node2D
 var vida 
-@onready var timer = $Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
 	update_animation("idle")
 	vida = 30
 	comportamiento()
@@ -32,14 +33,12 @@ func comportamiento() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
 		if Guia.attack == 1:
-			if ZonaVerde.areas_tocando > 0:
-				vida -=Filo.daño
-			
+			await get_tree().create_timer(3.0).timeout
 			if vida <= 0:
 				morir()
 
-func update_animation(animation):
-	$AnimatedSprite2D.play(animation)
+func update_animation(animacion):
+	$AnimatedSprite2D.play(animacion)
 
 func attack():
 	update_animation("attack")
