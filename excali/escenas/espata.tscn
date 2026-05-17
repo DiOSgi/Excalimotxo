@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://b7e4fmgsitdv3"]
 
 [ext_resource type="Texture2D" uid="uid://card4uts8s0fe" path="res://sprites/costume1.svg" id="1_ae3uu"]
-[ext_resource type="Script" uid="uid://lggelf675ml4" path="res://scripts/espata.gd" id="1_rx72l"]
-<<<<<<< HEAD
-=======
-[ext_resource type="AudioStream" uid="uid://ce7dclpu17ky8" path="res://sonidos/Random166.wav" id="3_goj5i"]
-[ext_resource type="AudioStream" uid="uid://bk7b32345m1lp" path="res://sonidos/Random(1).wav" id="4_7k48a"]
-[ext_resource type="AudioStream" uid="uid://br1l26ef58y85" path="res://sonidos/Random.wav" id="5_3buvm"]
->>>>>>> 758d61d514fc09e2474596a934d7d45ab22074f9
+[ext_resource type="Script" uid="uid://bbbrpyvwt5obs" path="res://scripts/espata.gd" id="1_rx72l"]
 
 [sub_resource type="Animation" id="Animation_rx72l"]
 length = 0.001
@@ -92,40 +86,11 @@ tracks/1/keys = {
 "values": [0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ftcr8"]
-resource_name = "parry"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-11, -69), Vector2(-1.9073486e-06, -1.0000076)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -1.5813147, 0.0040040016]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yqbd"]
 _data = {
 &"RESET": SubResource("Animation_rx72l"),
 &"attack": SubResource("Animation_ae3uu"),
-&"idle": SubResource("Animation_agopg"),
-&"parry": SubResource("Animation_ftcr8")
+&"idle": SubResource("Animation_agopg")
 }
 
 [node name="Espada" type="Node2D" unique_id=804453865]
@@ -138,12 +103,3 @@ texture = ExtResource("1_ae3uu")
 libraries/ = SubResource("AnimationLibrary_5yqbd")
 autoplay = &"idle"
 speed_scale = 2.152
-
-[node name="sonidoEspada1" type="AudioStreamPlayer" parent="." unique_id=1917971727]
-stream = ExtResource("3_goj5i")
-
-[node name="sonidoEspada2" type="AudioStreamPlayer" parent="." unique_id=1322125692]
-stream = ExtResource("4_7k48a")
-
-[node name="sonidoEspada3" type="AudioStreamPlayer" parent="." unique_id=1772749268]
-stream = ExtResource("5_3buvm")
