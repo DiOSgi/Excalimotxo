@@ -1,22 +1,22 @@
 extends Area2D
 
 # --- VARIABLES INICIALES---
-var attack: int = 1
+var puntos_de_acción: int = 1
 var move_direction: int = -1
 var velocidad: float = 3
 var can_move: bool = true
 var atacando: bool = false 
 var sonido: float
 @onready var enemy = $"/root/mundo/Enemy"
-@onready var espada1 : AudioStreamPlayer = $Espada1
-@onready var espada2 : AudioStreamPlayer = $Espada2
-@onready var espada3 : AudioStreamPlayer = $Espada3
+@onready var espada1 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada1
+@onready var espada2 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada2
+@onready var espada3 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada3
 
 # --- EMPEZAR ---
 func _ready() -> void:
 	# Posición inicial 
 	position = Vector2(0, 249)
-	attack = 1
+	puntos_de_acción = 1
 	move_direction = -1
 	velocidad = 3
 	atacando = false
@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 		if position.x <= 310:
 			position.x += velocidad
 		else:
-			attack = 1
+			puntos_de_acción = 1
 			move_direction = -1
 			
 	# SI move == -1 (Mover a la izquierda)
@@ -49,15 +49,17 @@ func _process(_delta: float) -> void:
 		if position.x >= -304:
 			position.x -= velocidad
 		else:
-			attack = 1
+			puntos_de_acción = 1
 			move_direction = 1
 
 
 # --- AL PRESIONAR CLICK IZQ ---
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ATACAR"):
-		if attack == 1:
-			can_move = false
+	pass
+
+func procesar_ataque():
+		if puntos_de_acción >= 1: #si actionpoints son mayores o iguales a 1
+			can_move = false #convierte can_move en falso
 			if await verificar_zona():
 				if enemy:
 					sonido = randf_range(1,3)
@@ -70,13 +72,13 @@ func _input(event: InputEvent) -> void:
 					enemy.recibir_daño(Filo.daño) 
 				atacando = true
 				await get_tree().create_timer(0.5).timeout
-				attack = 1
+				puntos_de_acción = 1
 				al_recibir_move()
 				await get_tree().create_timer(0.5).timeout
 				atacando = false
 			else:
 				await get_tree().create_timer(0.5).timeout
-				attack = 0
+				puntos_de_acción = 0
 				al_recibir_move()
 
 

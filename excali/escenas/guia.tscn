@@ -20,11 +20,15 @@ texture = ExtResource("2_j77pk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64072486]
 shape = SubResource("RectangleShape2D_kurrv")
 
-[node name="Espada1" type="AudioStreamPlayer" parent="." unique_id=114730100]
+[node name="SoundEffects" type="Node" parent="." unique_id=1464703303]
+
+[node name="HitEspada" type="Node" parent="SoundEffects" unique_id=782086097]
+
+[node name="Espada1" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=114730100]
 stream = ExtResource("3_cbybd")
 
-[node name="Espada2" type="AudioStreamPlayer" parent="." unique_id=491295611]
+[node name="Espada2" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=491295611]
 stream = ExtResource("4_2irjy")
 
-[node name="Espada3" type="AudioStreamPlayer" parent="." unique_id=435881780]
+[node name="Espada3" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=435881780]
 stream = ExtResource("5_jeuw1")

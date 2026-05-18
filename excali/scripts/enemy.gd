@@ -2,6 +2,7 @@ extends Node2D
 var vida
 var dañoenemigo = 10
 @onready var Espata = $"/root/mundo/Espata" 
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +43,7 @@ func attack():
 	await get_tree().create_timer(1).timeout
 	if Espata.bloqueado:
 		print(Espata.vida)
-		Guia.attack = 1
+		Guia.puntos_de_acción = 1
 	if not Espata.bloqueado:
 		Espata.vida -= dañoenemigo
 		print(Espata.vida)
