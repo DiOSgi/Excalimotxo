@@ -54,7 +54,7 @@ func _process(_delta: float) -> void:
 
 
 # --- AL PRESIONAR CLICK IZQ ---
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	pass
 
 func procesar_ataque():
