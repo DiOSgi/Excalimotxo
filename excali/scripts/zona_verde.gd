@@ -4,8 +4,7 @@ extends Area2D
 var spawn: float = 1.5
 var attack: int = 1
 var areas_tocando
-
-
+@onready var Guia = $"/root/mundo/Guia"
 # --- EMPEZAR ---
 func _ready() -> void:
 	spawn = 1.5

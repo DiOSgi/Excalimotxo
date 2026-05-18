@@ -11,6 +11,8 @@ var vida = 30
 var bloqueado = false
 var sonido : float
 
+@onready var Guia = $"/root/mundo/Guia"
+
 func _ready() -> void:
 	update_animations("idle")
 
@@ -41,6 +43,15 @@ func _input(event: InputEvent) -> void:
 		else:#si ataque de guia no era igual a 1
 			update_animations("idle") #
 
+func sonido_hit_espada():
+	print("sonando")
+	sonido = randi_range(1, 3)
+	if sonido == 1:
+		$SoundEffects/HitEspada/Espada1.play()
+	elif sonido == 2:
+		$SoundEffects/HitEspada/Espada2.play()
+	else:
+		$SoundEffects/HitEspada/Espada3.play()
 
 func update_animations(animation):
 	if $AnimationPlayer.current_animation == animation:

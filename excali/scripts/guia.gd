@@ -7,13 +7,13 @@ var velocidad: float = 3
 var can_move: bool = true
 var atacando: bool = false 
 var sonido: float
-@onready var enemy = $"/root/mundo/Enemy"
-@onready var espada1 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada1
-@onready var espada2 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada2
-@onready var espada3 : AudioStreamPlayer = $SoundEffects/HitEspada/Espada3
+
+@onready var espata: Node2D = $"../Espata"
+@onready var enemy: Node2D = $"../Enemy"
 
 # --- EMPEZAR ---
 func _ready() -> void:
+	
 	# Posición inicial 
 	position = Vector2(0, 249)
 	puntos_de_acción = 1
@@ -62,13 +62,7 @@ func procesar_ataque():
 			can_move = false #convierte can_move en falso
 			if await verificar_zona():
 				if enemy:
-					sonido = randf_range(1,3)
-					if sonido == 1:
-						espada1.play()
-					elif sonido == 2:
-						espada2.play()
-					else:
-						espada3.play()
+					espata.sonido_hit_espada() 
 					enemy.recibir_daño(Filo.daño) 
 				atacando = true
 				await get_tree().create_timer(0.5).timeout

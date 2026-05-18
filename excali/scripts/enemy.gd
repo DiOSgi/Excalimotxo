@@ -2,6 +2,7 @@ extends Node2D
 var vida
 var dañoenemigo = 10
 @onready var Espata = $"/root/mundo/Espata" 
+@onready var Guia = $"/root/mundo/Guia"
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.

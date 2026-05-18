@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://card4uts8s0fe" path="res://sprites/costume1.svg" id="1_ae3uu"]
 [ext_resource type="Script" uid="uid://lggelf675ml4" path="res://scripts/espata.gd" id="1_rx72l"]
+[ext_resource type="AudioStream" uid="uid://br1l26ef58y85" path="res://sonidos/Random.wav" id="3_goj5i"]
+[ext_resource type="AudioStream" uid="uid://bk7b32345m1lp" path="res://sonidos/Random(1).wav" id="4_7k48a"]
+[ext_resource type="AudioStream" uid="uid://ce7dclpu17ky8" path="res://sonidos/Random166.wav" id="5_3buvm"]
 
 [sub_resource type="Animation" id="Animation_ftcr8"]
 resource_name = "Parry"
@@ -132,3 +135,16 @@ texture = ExtResource("1_ae3uu")
 libraries/ = SubResource("AnimationLibrary_5yqbd")
 autoplay = &"idle"
 speed_scale = 2.152
+
+[node name="SoundEffects" type="Node" parent="." unique_id=142788776]
+
+[node name="HitEspada" type="Node" parent="SoundEffects" unique_id=503458494]
+
+[node name="Espada1" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=1370818530]
+stream = ExtResource("3_goj5i")
+
+[node name="Espada2" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=522945564]
+stream = ExtResource("4_7k48a")
+
+[node name="Espada3" type="AudioStreamPlayer" parent="SoundEffects/HitEspada" unique_id=431247546]
+stream = ExtResource("5_3buvm")
