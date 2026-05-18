@@ -42,6 +42,7 @@ func attack():
 	await get_tree().create_timer(1).timeout
 	if Espata.bloqueado:
 		print(Espata.vida)
+		Guia.attack = 1
 	if not Espata.bloqueado:
 		Espata.vida -= dañoenemigo
 		print(Espata.vida)

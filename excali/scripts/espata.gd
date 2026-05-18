@@ -26,9 +26,15 @@ func _input(event: InputEvent) -> void:
 		else:
 			update_animations("idle")
 	if event.is_action_pressed("BLOQUEAR"):
-		bloqueado = true
-		await get_tree().create_timer(parry).timeout
-		bloqueado = false
+		if Guia.attack == 1:
+			update_animations("parry")
+			bloqueado = true
+			await get_tree().create_timer(parry).timeout
+			bloqueado = false
+			update_animations("idle")
+			Guia.attack = 0
+		else:
+			update_animations("idle")
 
 
 func update_animations(animation):

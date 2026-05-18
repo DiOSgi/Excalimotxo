@@ -3,7 +3,7 @@ extends Area2D
 # --- VARIABLES INICIALES ---
 var spawn: float = 1.5
 var attack: int = 1
-@export var areas_tocando: int
+var areas_tocando
 
 
 # --- EMPEZAR ---
@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 
 # --- AL RECIBIR "HIT" ---
 func al_recibir_hit() -> bool:
-	var areas_tocando = get_overlapping_areas()
+	areas_tocando = get_overlapping_areas()
 	if areas_tocando.size() > 0:
 		return true
 	else:
