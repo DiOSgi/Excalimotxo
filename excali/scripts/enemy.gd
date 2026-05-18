@@ -1,6 +1,6 @@
 extends Node2D
 var vida
-var dañoenemigo = 2
+var dañoenemigo = 10
 @onready var Espata = $"/root/mundo/Espata" 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,13 +39,12 @@ func comportamiento() -> void:
 
 func attack():
 	$AnimatedSprite2D.play("attack")
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(1).timeout
 	if Espata.bloqueado:
 		print(Espata.vida)
 	if not Espata.bloqueado:
 		Espata.vida -= dañoenemigo
 		print(Espata.vida)
-		Guia.attack = 0
 
 func morir():
 	vida = 0

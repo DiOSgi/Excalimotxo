@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bveyenjh58nj2" path="res://escenas/barra.tscn" id="1_v12yk"]
 [ext_resource type="PackedScene" uid="uid://bbunmluxu1vp5" path="res://escenas/zona_verde.tscn" id="2_16hu1"]
 [ext_resource type="PackedScene" uid="uid://ejsmdb5n82ad" path="res://escenas/guia.tscn" id="3_7oex1"]
-[ext_resource type="PackedScene" uid="uid://bj08huuk6ote4" path="res://escenas/espata.tscn" id="4_4vydk"]
+[ext_resource type="PackedScene" uid="uid://b7e4fmgsitdv3" path="res://escenas/espata.tscn" id="4_4vydk"]
 
 [node name="mundo" type="Node2D" unique_id=1513716568]
 

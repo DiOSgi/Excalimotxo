@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7e4fmgsitdv3"]
 
 [ext_resource type="Texture2D" uid="uid://card4uts8s0fe" path="res://sprites/costume1.svg" id="1_ae3uu"]
-[ext_resource type="Script" uid="uid://bbbrpyvwt5obs" path="res://scripts/espata.gd" id="1_rx72l"]
+[ext_resource type="Script" uid="uid://lggelf675ml4" path="res://espata.gd" id="1_rx72l"]
 
 [sub_resource type="Animation" id="Animation_rx72l"]
 length = 0.001

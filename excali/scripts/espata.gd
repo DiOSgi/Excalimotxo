@@ -6,6 +6,8 @@ var tamañobarra
 var daño : int
 var parry : float = 0.5
 var freezetimebarra
+var vida = 30
+var bloqueado = false
 
 func _ready() -> void:
 	update_animations("idle")
@@ -24,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			update_animations("idle")
 	if event.is_action_pressed("BLOQUEAR"):
-		var bloqueado = true
+		bloqueado = true
 		await get_tree().create_timer(parry).timeout
 		bloqueado = false
 
