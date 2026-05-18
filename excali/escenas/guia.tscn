@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://calushwg5bnv" path="res://scripts/guia.gd" id="1_wqsia"]
 [ext_resource type="Texture2D" uid="uid://bh7tcpl8nks4a" path="res://sprites/guia.png" id="2_j77pk"]
+[ext_resource type="AudioStream" uid="uid://br1l26ef58y85" path="res://sonidos/Random.wav" id="3_cbybd"]
+[ext_resource type="AudioStream" uid="uid://bk7b32345m1lp" path="res://sonidos/Random(1).wav" id="4_2irjy"]
+[ext_resource type="AudioStream" uid="uid://ce7dclpu17ky8" path="res://sonidos/Random166.wav" id="5_jeuw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kurrv"]
 size = Vector2(6, 63)
@@ -16,3 +19,12 @@ texture = ExtResource("2_j77pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64072486]
 shape = SubResource("RectangleShape2D_kurrv")
+
+[node name="Espada1" type="AudioStreamPlayer" parent="." unique_id=114730100]
+stream = ExtResource("3_cbybd")
+
+[node name="Espada2" type="AudioStreamPlayer" parent="." unique_id=491295611]
+stream = ExtResource("4_2irjy")
+
+[node name="Espada3" type="AudioStreamPlayer" parent="." unique_id=435881780]
+stream = ExtResource("5_jeuw1")

@@ -8,9 +8,12 @@ var parry : float = 0.5
 var freezetimebarra
 var vida = 30
 var bloqueado = false
+var sonido : float
+
 
 func _ready() -> void:
 	update_animations("idle")
+	
 
 
 
@@ -20,14 +23,17 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
 		if Guia.attack == 1:
+			
 			update_animations("attack")
 			await get_tree().create_timer(0.5).timeout
 			update_animations("idle")
+			
 		else:
 			update_animations("idle")
+			
 	if event.is_action_pressed("BLOQUEAR"):
 		if Guia.attack == 1:
-			update_animations("parry")
+			update_animations("Parry")
 			bloqueado = true
 			await get_tree().create_timer(parry).timeout
 			bloqueado = false

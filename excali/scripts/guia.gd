@@ -6,8 +6,11 @@ var move_direction: int = -1
 var velocidad: float = 3
 var can_move: bool = true
 var atacando: bool = false 
+var sonido: float
 @onready var enemy = $"/root/mundo/Enemy"
-
+@onready var espada1 : AudioStreamPlayer = $Espada1
+@onready var espada2 : AudioStreamPlayer = $Espada2
+@onready var espada3 : AudioStreamPlayer = $Espada3
 
 # --- EMPEZAR ---
 func _ready() -> void:
@@ -57,6 +60,13 @@ func _input(event: InputEvent) -> void:
 			can_move = false
 			if await verificar_zona():
 				if enemy:
+					sonido = randf_range(1,3)
+					if sonido == 1:
+						espada1.play()
+					elif sonido == 2:
+						espada2.play()
+					else:
+						espada3.play()
 					enemy.recibir_daño(Filo.daño) 
 				atacando = true
 				await get_tree().create_timer(0.5).timeout
