@@ -65,13 +65,13 @@ func procesar_ataque():
 					espata.sonido_hit_espada() 
 					enemy.recibir_daño(Filo.daño) 
 				atacando = true
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.2).timeout
 				puntos_de_acción = 1
 				al_recibir_move()
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.2).timeout
 				atacando = false
 			else:
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.2).timeout
 				puntos_de_acción = 0
 				al_recibir_move()
 

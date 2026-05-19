@@ -42,9 +42,11 @@ func comportamiento() -> void:
 func attack():
 	$AnimatedSprite2D.play("attack")
 	await get_tree().create_timer(1).timeout
+	
 	if Espata.bloqueando:
 		print("Tu vida: ", Espata.vida)
 		Guia.puntos_de_acción += 1
+		
 	if not Espata.bloqueando:
 		Espata.vida -= dañoenemigo
 		print("Tu vida: ", Espata.vida)
