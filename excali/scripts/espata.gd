@@ -8,7 +8,7 @@ var parry : float = 0.5
 var freezetimebarra
 
 var vida = 30
-var bloqueado = false
+var bloqueando = false
 var sonido : float
 
 @onready var Guia = $"/root/mundo/Guia"
@@ -34,17 +34,17 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("BLOQUEAR"):#Cuando se presiona bloquear
 		if Guia.puntos_de_acción >= 1:#si accion de guia es igual o mayor a 1
 			update_animations("Parry")#Hace animacion de parry
-			bloqueado = true#Pasa a estar bloqueando
-			print("Bloqueas")
+			bloqueando = true#Pasa a estar bloqueando
+			print("Intentas bloquear")
 			await get_tree().create_timer(parry).timeout#espera el tiempo que dura parry
-			bloqueado = false#deja de bloquear
+			bloqueando = false#deja de bloquear
 			update_animations("idle")#Hace animacion idle
 			Guia.puntos_de_acción -= 1 #se resta una acción
 		else:#si ataque de guia no era igual a 1
 			update_animations("idle") #
 
 func sonido_hit_espada():
-	print("sonando")
+	print("Sonido de espada golpeando.mp4")
 	sonido = randi_range(1, 3)
 	if sonido == 1:
 		$SoundEffects/HitEspada/Espada1.play()

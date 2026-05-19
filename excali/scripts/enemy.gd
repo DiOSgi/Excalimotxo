@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 
 func recibir_daño(cantidad: int) -> void:
 	vida -= cantidad
-	print("Vida restante: ", vida)  # para debug
+	print("Vida del enemigo: ", vida)  # para debug
 
 func comportamiento() -> void:
 	# Mientras el enemigo siga vivo, repetirá esto:
@@ -42,12 +42,12 @@ func comportamiento() -> void:
 func attack():
 	$AnimatedSprite2D.play("attack")
 	await get_tree().create_timer(1).timeout
-	if Espata.bloqueado:
-		print(Espata.vida)
-		Guia.puntos_de_acción = 1
-	if not Espata.bloqueado:
+	if Espata.bloqueando:
+		print("Tu vida: ", Espata.vida)
+		Guia.puntos_de_acción += 1
+	if not Espata.bloqueando:
 		Espata.vida -= dañoenemigo
-		print(Espata.vida)
+		print("Tu vida: ", Espata.vida)
 
 func morir():
 	vida = 0
