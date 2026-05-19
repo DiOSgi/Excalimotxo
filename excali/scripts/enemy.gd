@@ -25,8 +25,11 @@ func recibir_daño(cantidad: int) -> void:
 func comportamiento() -> void:
 	# Mientras el enemigo siga vivo, repetirá esto:
 	while vida > 0:
-	
-		await get_tree().create_timer(3.0).timeout
+		
+		var CooldownAtaque = randi_range(3,8)#Cambiar por enemigo diferente
+		print(CooldownAtaque)
+		
+		await get_tree().create_timer(CooldownAtaque).timeout
 		
 		if vida <= 0: break
 		

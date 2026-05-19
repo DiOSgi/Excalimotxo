@@ -33,13 +33,13 @@ func _input(event: InputEvent) -> void:
 			
 	if event.is_action_pressed("BLOQUEAR"):#Cuando se presiona bloquear
 		if Guia.puntos_de_acción >= 1:#si accion de guia es igual o mayor a 1
+			Guia.puntos_de_acción -= 1
 			update_animations("Parry")#Hace animacion de parry
 			bloqueando = true#Pasa a estar bloqueando
 			print("Intentas bloquear")
 			await get_tree().create_timer(parry).timeout#espera el tiempo que dura parry
 			bloqueando = false#deja de bloquear
 			update_animations("idle")#Hace animacion idle
-			Guia.puntos_de_acción -= 1 #se resta una acción
 		else:#si ataque de guia no era igual a 1
 			update_animations("idle") #
 

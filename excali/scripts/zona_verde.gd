@@ -4,7 +4,9 @@ extends Area2D
 var spawn: float = 1.5
 var attack: int = 1
 var areas_tocando
+
 @onready var Guia = $"/root/mundo/Guia"
+
 # --- EMPEZAR ---
 func _ready() -> void:
 	spawn = 1.5
@@ -27,7 +29,7 @@ func al_recibir_hit() -> bool:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):
-		if attack == 1:
+		if Guia.puntos_de_acción == 1:
 			if al_recibir_hit():
 				hide()
 				# esperar [spawn] segundos
