@@ -33,7 +33,7 @@ func al_recibir_hit() -> bool:
 #	if event.is_action_pressed("ATACAR"):
 #		if Guia.puntos_de_acción >= 1:
 
-func AnuelDobleA():
+func Ataque_acertado():
 			if al_recibir_hit():
 				hide()
 				# esperar [spawn] segundos
