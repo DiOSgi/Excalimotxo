@@ -10,6 +10,7 @@ var sonido: float
 
 @onready var espata: Node2D = $"../Espata"
 @onready var enemy: Node2D = $"../Enemy"
+@onready var zona_verde: Area2D = $"../zona_verde"
 
 # --- EMPEZAR ---
 func _ready() -> void:
@@ -58,23 +59,24 @@ func _input(_event: InputEvent) -> void:
 	pass
 
 func procesar_ataque():
-		if puntos_de_acción >= 1: #si actionpoints son mayores o iguales a 1
-			puntos_de_acción -= 1
-			can_move = false #convierte can_move en falso
-			if await verificar_zona():
-				if enemy:
-					espata.sonido_hit_espada() 
-					enemy.recibir_daño(Filo.daño) 
-				atacando = true
-				await get_tree().create_timer(0.15).timeout
-				puntos_de_acción += 1
-				al_recibir_move()
-				await get_tree().create_timer(0.15).timeout
-				atacando = false
-			else:
-				await get_tree().create_timer(0.15).timeout
-				puntos_de_acción -= 1
-				al_recibir_move()
+	#si actionpoints son mayores o iguales a 1
+	print("En este punto tienes ", puntos_de_acción)
+	can_move = false #convierte can_move en falso
+	zona_verde.AnuelDobleA()
+	if await verificar_zona():
+		if enemy:
+			espata.sonido_hit_espada() 
+			enemy.recibir_daño(Filo.daño) 
+		atacando = true
+		await get_tree().create_timer(0.15).timeout
+		puntos_de_acción += 1
+		al_recibir_move()
+		await get_tree().create_timer(0.15).timeout
+		atacando = false
+	else:
+		await get_tree().create_timer(0.15).timeout
+		puntos_de_acción -= 1
+		al_recibir_move()
 
 
 func verificar_zona() -> bool:

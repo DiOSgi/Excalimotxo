@@ -4,6 +4,7 @@ extends Area2D
 var spawn: float = 1.5
 var attack: int = 1
 var areas_tocando
+var hitacertado : bool = false
 
 @onready var Guia = $"/root/mundo/Guia"
 
@@ -21,24 +22,29 @@ func _process(_delta: float) -> void:
 # --- AL RECIBIR "HIT" ---
 func al_recibir_hit() -> bool:
 	areas_tocando = get_overlapping_areas()
+	hitacertado = true
 	if areas_tocando.size() > 0:
 		return true
 	else:
 		return false
 	
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ATACAR"):
-		if Guia.puntos_de_acción == 1:
+#func _input(event: InputEvent) -> void:
+#	if event.is_action_pressed("ATACAR"):
+#		if Guia.puntos_de_acción >= 1:
+
+func AnuelDobleA():
 			if al_recibir_hit():
 				hide()
 				# esperar [spawn] segundos
 				await get_tree().create_timer(spawn).timeout
 				position.x = randf_range(-119.0, 119.0)
 				show()  # mostrar
-				attack = 1
-			else:
-					attack = 0
+				
+				#hitacertado = false
+				#attack = 1
+#			else:
+#				attack = 0
 			
 
 

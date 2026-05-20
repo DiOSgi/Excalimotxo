@@ -12,6 +12,7 @@ var bloqueando = false
 var sonido : float
 
 @onready var Guia = $"/root/mundo/Guia"
+@onready var zona_verde = $"/root/mundo/zona_verde"
 
 func _ready() -> void:
 	update_animations("idle")
@@ -22,6 +23,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):#cuando se presiona atacar
 		if Guia.puntos_de_acción >= 1:#si puntos de accion son mayores o iguales que 1
+			Guia.puntos_de_acción -= 1
 			Guia.procesar_ataque()
 			update_animations("attack")#hace animación de atacar
 			await get_tree().create_timer(0.5).timeout#espera 0.5 segundos
