@@ -1,15 +1,13 @@
 extends Area2D
 
 # --- VARIABLES INICIALES---
-var puntos_de_acción: int = 1
 var move_direction: int = -1
 var velocidad: float = 3
-var can_move: bool = true
-var atacando: bool = false 
+var moverse: bool = true
 var sonido: float
 
-@onready var espata: Node2D = $"../Espata"
-@onready var enemy: Node2D = $"../Enemy"
+@onready var Espata = $"/root/mundo/Espata"
+@onready var Enemy: Node2D = $"/root/mundo/Enemy"
 @onready var zona_verde: Area2D = $"../zona_verde"
 
 # --- EMPEZAR ---
@@ -17,24 +15,15 @@ func _ready() -> void:
 	
 	# Posición inicial 
 	position = Vector2(0, 249)
-	puntos_de_acción = 1
 	move_direction = -1
 	velocidad = 3
-	atacando = false
 	
 	set_process_input(true)
 	# Activa el movimiento
-	al_recibir_move()
-
-
-# --- BUCLE DE MOVIMIENTO ---
-func al_recibir_move() -> void:
-	can_move = true
-
-
+	moverse = true
 
 func _process(_delta: float) -> void:
-	if not can_move:
+	if not moverse:
 		return
 		
 	# SI move == 1 (Mover a la derecha)
@@ -42,7 +31,7 @@ func _process(_delta: float) -> void:
 		if position.x <= 310:
 			position.x += velocidad
 		else:
-			puntos_de_acción = 1
+			Espata.ActionPoints = true
 			move_direction = -1
 			
 	# SI move == -1 (Mover a la izquierda)
@@ -50,38 +39,23 @@ func _process(_delta: float) -> void:
 		if position.x >= -304:
 			position.x -= velocidad
 		else:
-			puntos_de_acción = 1
+			Espata.ActionPoints = true
 			move_direction = 1
-
 
 # --- AL PRESIONAR CLICK IZQ ---
 func _input(_event: InputEvent) -> void:
 	pass
 
 func procesar_ataque():
-	can_move = false #convierte can_move en falso
-	zona_verde.Ataque_acertado()
-	if await verificar_zona():
-		if enemy:
-			espata.sonido_hit_espada() 
-			enemy.recibir_daño(Filo.daño) 
-		atacando = true
-		await get_tree().create_timer(0.15).timeout
-		puntos_de_acción += 1
-		al_recibir_move()
-		await get_tree().create_timer(0.15).timeout
-		atacando = false
+	moverse = false #convierte can_move en falso
+	if await zona_verde.Ataque_acertado():
+		Espata.sonido_hit_espada() 
+		Enemy.recibir_daño(Espata.daño) 
+		#await get_tree().create_timer(0.15).timeout
+		moverse = true
+		Espata.ActionPoints = true
+		#await get_tree().create_timer(0.15).timeout
 	else:
 		await get_tree().create_timer(0.15).timeout
-		puntos_de_acción -= 1
-		al_recibir_move()
-
-
-func verificar_zona() -> bool:
-	await get_tree().process_frame
-	var areas_tocando = get_overlapping_areas()
-	
-	if areas_tocando.size() > 0:
-		return true
-	else:
-		return false
+		Espata.ActionPoints = false
+		moverse = true

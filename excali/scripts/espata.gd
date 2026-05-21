@@ -10,6 +10,7 @@ var freezetimebarra
 var vida = 30
 var bloqueando = false
 var sonido : float
+var ActionPoints : bool = true
 
 @onready var Guia = $"/root/mundo/Guia"
 @onready var zona_verde = $"/root/mundo/zona_verde"
@@ -36,20 +37,20 @@ func setEstadisticas():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):#cuando se presiona atacar
-		if Guia.puntos_de_acción >= 1:#si puntos de accion son mayores o iguales que 1
-			Guia.puntos_de_acción -= 1
+		if ActionPoints:#si puntos de accion son mayores o iguales que 1
+			ActionPoints = false
 			Guia.procesar_ataque()
 			update_animations("attack")#hace animación de atacar
 			await get_tree().create_timer(0.5).timeout#espera 0.5 segundos
 			update_animations("idle")#hace animacion idle
-			print("Atacas")
+			ActionPoints = true
 		else: #si puntos de accion no son mayores o iguales a 1
 			print("No puedes hacer nada")
 			update_animations("idle")#hacer animación idle
 			
 	if event.is_action_pressed("BLOQUEAR"):#Cuando se presiona bloquear
-		if Guia.puntos_de_acción >= 1:#si accion de guia es igual o mayor a 1
-			Guia.puntos_de_acción -= 1
+		if ActionPoints:#si accion de guia es igual o mayor a 1
+			ActionPoints = false
 			update_animations("Parry")#Hace animacion de parry
 			bloqueando = true#Pasa a estar bloqueando
 			print("Intentas bloquear")

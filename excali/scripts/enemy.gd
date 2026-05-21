@@ -27,7 +27,7 @@ func comportamiento() -> void:
 	while vida > 0:
 		
 		var CooldownAtaque = randi_range(3,8)#Cambiar por enemigo diferente
-		print(CooldownAtaque)
+		print("Cooldown del Ataque: ", CooldownAtaque)
 		
 		await get_tree().create_timer(CooldownAtaque).timeout
 		
@@ -48,7 +48,7 @@ func attack():
 	
 	if Espata.bloqueando:
 		print("Tu vida: ", Espata.vida)
-		Guia.puntos_de_acción += 1
+		Espata.ActionPoints = true
 		
 	if not Espata.bloqueando:
 		Espata.vida -= dañoenemigo
