@@ -33,6 +33,5 @@ func Ataque_acertado() -> bool:
 	else:
 		return false
 
-# --- AL RECIBIR "TURNO" ---
 func al_recibir_turno() -> void:
 	await get_tree().create_timer(0.1).timeout
