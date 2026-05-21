@@ -8,7 +8,7 @@ var parry : float
 var freezetimebarra #Provisional, testear, puede ir anexado a la velocidad
 @onready var script_filo = load("res://scripts/filo_equipado.gd")
 @onready var script_mango = load("res://scripts/mango_equipado.gd")
-
+@onready var Espata = $"/root/mundo/Espata" 
 
 func _ready() -> void:
 	if script_filo and script_mango:
@@ -21,11 +21,7 @@ func _ready() -> void:
 		daño = (filo.daño + mango.daño)*2
 		parry = (filo.parry + mango.parry)*0.2
 		
-		print("Velocidad: ", velocidad)
-		print("Spawnrate: ", spawnrate)
-		print("Tamaño Barra: ", tamañobarra)
-		print("Daño: ", daño)
-		print("Parry: ", parry)
+		Espata.setEstadisticas()
 	# Si terminamos poniendo tipos de filos, seria hacer otra variable
 	# llamada "tipo" que diga si es espada, mandoble, daga...
 	#entonces seria poner las variables iniciales dentro de ifs de si es espada o no y etc.

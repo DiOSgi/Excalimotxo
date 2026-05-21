@@ -20,6 +20,20 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func setEstadisticas():
+	velocidad = Conversor.velocidad
+	spawnrate = Conversor.spawnrate
+	tamañobarra = Conversor.tamañobarra
+	daño = Conversor.daño
+	parry = Conversor.parry
+	
+	print("Velocidad: ", velocidad)
+	print("Spawnrate: ", spawnrate)
+	print("Tamaño Barra: ", tamañobarra)
+	print("Daño: ", daño)
+	print("Parry: ", parry)
+	#freezetimebarra = Conversor.freezetimebarra
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ATACAR"):#cuando se presiona atacar
 		if Guia.puntos_de_acción >= 1:#si puntos de accion son mayores o iguales que 1
