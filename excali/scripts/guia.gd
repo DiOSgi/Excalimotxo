@@ -59,8 +59,6 @@ func _input(_event: InputEvent) -> void:
 	pass
 
 func procesar_ataque():
-	#si actionpoints son mayores o iguales a 1
-	print("En este punto tienes ", puntos_de_acción)
 	can_move = false #convierte can_move en falso
 	zona_verde.Ataque_acertado()
 	if await verificar_zona():
