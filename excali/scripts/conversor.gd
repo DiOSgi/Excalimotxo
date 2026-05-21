@@ -26,9 +26,6 @@ func _ready() -> void:
 	# llamada "tipo" que diga si es espada, mandoble, daga...
 	#entonces seria poner las variables iniciales dentro de ifs de si es espada o no y etc.
 
-func set_estadisticas() -> void:
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
