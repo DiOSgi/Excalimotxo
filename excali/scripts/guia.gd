@@ -48,12 +48,14 @@ func _input(_event: InputEvent) -> void:
 
 func procesar_ataque():
 	moverse = false #convierte can_move en falso
-	if await zona_verde.Ataque_acertado():
+	if await zona_verde.SeTocan():
 		Espata.sonido_hit_espada() 
+		
 		Enemy.recibir_daño(Espata.daño) 
-		#await get_tree().create_timer(0.15).timeout
+		
+		await get_tree().create_timer(0.15).timeout
 		moverse = true
-		Espata.ActionPoints = true
+		await zona_verde.Ataque_acertado()
 		#await get_tree().create_timer(0.15).timeout
 	else:
 		await get_tree().create_timer(0.15).timeout

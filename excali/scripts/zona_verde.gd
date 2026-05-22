@@ -23,15 +23,12 @@ func SeTocan() -> bool:
 	else:
 		return false
 
-func Ataque_acertado() -> bool:
+func Ataque_acertado():
 	if SeTocan():
 		hide()
-		await get_tree().create_timer(Espata.spawnrate).timeout
 		position.x = randf_range(-119.0, 119.0)
+		await get_tree().create_timer(Espata.spawnrate).timeout
 		show()  # mostrar
-		return true
-	else:
-		return false
 
 func al_recibir_turno() -> void:
 	await get_tree().create_timer(0.1).timeout
