@@ -74,16 +74,18 @@ func morir():
 	hide()
 
 func drop_filo() -> bool:
-	dropeaFilo = randi_range(100, 100)
+	dropeaFilo = randi_range(1, 100)
 	if dropeaFilo == 100:
 		FiloNuevo.DropeandoFilos()
+		
 		return true
 	else:
 		return false
 
 func drop_mango() -> bool:
-	dropeaMango = randi_range(1, 100)
+	dropeaMango = randi_range(100, 100)
 	if dropeaMango == 100:
+		MangoNuevo.DropeandoMangos()
 		return true
 	else:
 		return false

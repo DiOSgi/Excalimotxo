@@ -20,6 +20,7 @@ config/icon="res://sprites/icon.svg"
 Filo="*uid://kmus6n64xhg7"
 Conversor="*uid://cc8togpt5gxqf"
 FiloNuevo="*uid://c6meii22on3y5"
+MangoNuevo="*uid://di5n5whb6gxcw"
 
 [input]
 
