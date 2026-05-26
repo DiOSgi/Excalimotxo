@@ -18,7 +18,7 @@ func _ready() -> void:
 		velocidad = (filo.velocidad + mango.velocidad) * 2
 		spawnrate = (1.5 - (filo.spawnrate + mango.spawnrate)*0.15)
 		#tamañobarra = (filo.tamañobarra + mango.tamañobarra)*5
-		daño = (filo.daño + mango.daño)*2
+		daño = 30 #(filo.daño + mango.daño)*2
 		parry = (filo.parry + mango.parry)*0.2
 		
 		Espata.setEstadisticas()
