@@ -43,10 +43,10 @@ func _input(event: InputEvent) -> void:
 			update_animations("attack")#hace animación de atacar
 			await get_tree().create_timer(0.5).timeout#espera 0.5 segundos
 			update_animations("idle")#hace animacion idle
-			ActionPoints = true
 		else: #si puntos de accion no son mayores o iguales a 1
 			print("No puedes hacer nada")
 			update_animations("idle")#hacer animación idle
+			ActionPoints = false
 			
 	if event.is_action_pressed("BLOQUEAR"):#Cuando se presiona bloquear
 		if ActionPoints:#si accion de guia es igual o mayor a 1

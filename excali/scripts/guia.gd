@@ -2,7 +2,7 @@ extends Area2D
 
 # --- VARIABLES INICIALES---
 var move_direction: int = -1
-var velocidad: float = 3
+var velocidad: float
 var moverse: bool = true
 var sonido: float
 

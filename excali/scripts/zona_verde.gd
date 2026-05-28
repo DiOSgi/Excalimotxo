@@ -26,6 +26,7 @@ func SeTocan() -> bool:
 func Ataque_acertado():
 	if SeTocan():
 		hide()
+		Espata.ActionPoints = true
 		position.x = randf_range(-119.0, 119.0)
 		await get_tree().create_timer(Espata.spawnrate).timeout
 		show()  # mostrar
