@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh7tcpl8nks4a" path="res://sprites/guia.png" id="2_j77pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kurrv"]
-size = Vector2(6, 63)
+size = Vector2(20, 63)
 
 [node name="Guia" type="Area2D" unique_id=1584214554]
 script = ExtResource("1_wqsia")

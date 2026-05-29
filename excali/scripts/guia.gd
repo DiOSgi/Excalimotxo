@@ -2,7 +2,6 @@ extends Area2D
 
 # --- VARIABLES INICIALES---
 var move_direction: int = -1
-var velocidad: float
 var moverse: bool = true
 var sonido: float
 
@@ -16,7 +15,6 @@ func _ready() -> void:
 	# Posición inicial 
 	position = Vector2(0, 249)
 	move_direction = -1
-	velocidad = 3
 	
 	set_process_input(true)
 	# Activa el movimiento
@@ -29,7 +27,7 @@ func _process(_delta: float) -> void:
 	# SI move == 1 (Mover a la derecha)
 	if move_direction == 1:
 		if position.x <= 310:
-			position.x += velocidad
+			position.x += Espata.velocidad
 		else:
 			Espata.ActionPoints = true
 			move_direction = -1
@@ -37,7 +35,7 @@ func _process(_delta: float) -> void:
 	# SI move == -1 (Mover a la izquierda)
 	elif move_direction == -1:
 		if position.x >= -304:
-			position.x -= velocidad
+			position.x -= Espata.velocidad
 		else:
 			Espata.ActionPoints = true
 			move_direction = 1

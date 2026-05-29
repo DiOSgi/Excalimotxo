@@ -83,7 +83,7 @@ func drop_filo() -> bool:
 		return false
 
 func drop_mango() -> bool:
-	dropeaMango = randi_range(100, 100)
+	dropeaMango = randi_range(1, 100)
 	if dropeaMango == 100:
 		MangoNuevo.DropeandoMangos()
 		return true
