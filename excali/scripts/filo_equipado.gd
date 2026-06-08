@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var velocidad : int = 2 + 15
+var velocidad : int = 2 + 10
 var spawnrate : float = 2
 var tamañobarra 
 var daño : int = 3
