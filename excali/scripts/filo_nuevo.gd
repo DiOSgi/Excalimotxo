@@ -1,6 +1,6 @@
 extends Node
 var velocidad : int = 2
-var spawnrate : int = 2
+#var spawnrate : int = 2
 var tamañobarra 
 var daño : int  = 3
 var parry : int  = 2
@@ -28,8 +28,8 @@ func actualizar():
 		velocidad +=1 
 	elif stats_1 == "daño":
 		daño +=1 
-	elif stats_1 == "spawnrate":
-		spawnrate +=1 
+	#elif stats_1 == "spawnrate":
+		#spawnrate +=1 
 	elif stats_1 == "parry":
 		parry +=1 	
 
@@ -38,7 +38,7 @@ func imprimir_valor_actual():
 		print("Valor de velocidad: ", velocidad)
 	elif stats_1 == "daño":
 		print("Valor de daño: ", daño)
-	elif stats_1 == "spawnrate":
-		print("Valor de spawnrate: ", spawnrate)
+	#elif stats_1 == "spawnrate":
+		#print("Valor de spawnrate: ", spawnrate)
 	elif stats_1 == "parry":
 		print("Valor de parry: ", parry)

@@ -1,7 +1,7 @@
 extends Node2D
 
 var velocidad : int
-var spawnrate : float
+#var spawnrate : float
 var tamañobarra
 var daño : int
 var parry : float
@@ -15,10 +15,10 @@ func _ready() -> void:
 		var filo = script_filo.new()
 		var mango = script_mango.new()
 		
-		velocidad = (filo.velocidad + mango.velocidad) * 2
-		spawnrate = (1.5 - (filo.spawnrate + mango.spawnrate)*0.15)
+		velocidad = (filo.velocidad + mango.velocidad) *2
+		#spawnrate = (1.5 - (filo.spawnrate + mango.spawnrate)*0.15)
 		#tamañobarra = (filo.tamañobarra + mango.tamañobarra)*5
-		daño = 30 #(filo.daño + mango.daño)*2
+		daño =(filo.daño + mango.daño)*2
 		parry = (filo.parry + mango.parry)*0.2
 		
 		Espata.setEstadisticas()

@@ -14,6 +14,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Guia.position.x <= -304 or Guia.position.x >=310:
 		al_recibir_turno()
+		
+		position.x = randf_range(-119.0, 119.0) 
+		show()
+		
 
 # --- AL RECIBIR "HIT" ---
 func SeTocan() -> bool:
@@ -27,9 +31,10 @@ func Ataque_acertado():
 	if SeTocan():
 		hide()
 		Espata.ActionPoints = true
-		position.x = randf_range(-119.0, 119.0)
-		await get_tree().create_timer(Espata.spawnrate).timeout
-		show()  # mostrar
+		
+		#position.x = randf_range(-119.0, 119.0)
+		#await get_tree().create_timer(Espata.spawnrate).timeout
+		#show()  # mostrar
 
 func al_recibir_turno() -> void:
 	await get_tree().create_timer(0.1).timeout

@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 
 func setEstadisticas():
 	velocidad = Conversor.velocidad
-	spawnrate = Conversor.spawnrate
+	#spawnrate = Conversor.spawnrate
 	tamañobarra = Conversor.tamañobarra
 	daño = Conversor.daño
 	parry = Conversor.parry
